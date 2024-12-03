@@ -88,14 +88,11 @@ public class Modular {
     public static void ejercicio2() {
         int opciones = opcion();
         mostrar_menu(opciones);
-
-
-
+        int seleccion = seleccion_usuario(opciones);
     }
-
     public static void mostrar_menu(int opciones) {
         System.out.println("Menu de  opciones : ");
-        for (int i = 1; i <opciones ; i++) {
+        for (int i = 1; i <=opciones ; i++) {
             System.out.println(i+" Opcion "+i);
         }
         System.out.println((opciones+1)+" .salir");
@@ -104,6 +101,7 @@ public class Modular {
     public static int opcion() {
 
         Scanner teclado = new Scanner(System.in);
+        System.out.println("Cuantas opciones quieres: ");
         int opciones = 0;
         try {
              opciones = teclado.nextInt();
@@ -113,7 +111,68 @@ public class Modular {
         return opciones;
     }
 
-    
+    public static int seleccion_usuario(int opciones){
+        Scanner teclado = new Scanner(System.in);
+        int seleccionar =0;
+
+        boolean comprobar = false;
+        do {
+            System.out.println("Elige una opcion: 1-"+ (opciones+1)+" :");
+            seleccionar= teclado.nextInt();
+
+            if (seleccionar==0){
+                System.out.println("Numero fuera del rango");
+            } else if (seleccionar>=1 && seleccionar<=opciones+1) {
+                comprobar=true;
+                if (seleccionar == opciones+1){
+                    System.out.println("Saliendo del programa...");
+                }else {
+                    System.out.println("has elegido la opcion"+seleccionar);
+                }
+            }
+
+
+        }while (!comprobar);
+        return seleccionar;
+    }
+    ///////////////////////////////////////////////////////
+
+    public static void ejercicio3(){
+        String mostrar = cadena_usuario();
+        String mayuscula =metodo1(mostrar);
+        metodo2(mayuscula);
+
+    }
+    public static String cadena_usuario (){
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.println("Dime una cadena :");
+        String cadena = teclado.next();
+        return cadena;
+    }
+    public static String metodo1(String cadena){
+
+        String mayuscula =cadena.toUpperCase();
+        System.out.println(mayuscula);
+        return mayuscula;
+
+    }
+    public static boolean vocal ( char v){
+        return v == 'a' || v == 'e' || v == 'i' || v == 'o'  || v == 'u' ||
+                v=='A' || v == 'E' || v=='I' || v=='O'||v=='U';
+    }
+    public static String metodo2( String mayuscula){
+        int vocales =0;
+        for (int i = 0; i < mayuscula.length(); i++) {
+            char v = mayuscula.charAt(i);
+            if (vocal(v)){
+                vocales++;
+            }
+
+        }
+        System.out.println("Hay "+vocales+" vocales");
+        return mayuscula;
+    }
 
 }
 
