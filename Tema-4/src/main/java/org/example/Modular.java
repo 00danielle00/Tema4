@@ -86,29 +86,34 @@ public class Modular {
     ///////////////////////////////////////////////////////////////////////////////////
 
     public static void ejercicio2() {
-        mostrar_menu();
-        int preguntar = opcion();
+        int opciones = opcion();
+        mostrar_menu(opciones);
+
+
+
     }
 
-    public static void mostrar_menu() {
-        System.out.println("Seleccione las opciones:");
-        System.out.println("Opcion1 :");
-        System.out.println("Opcion2 :");
-        System.out.println("Opcion3-Salir");
-
+    public static void mostrar_menu(int opciones) {
+        System.out.println("Menu de  opciones : ");
+        for (int i = 1; i <opciones ; i++) {
+            System.out.println(i+" Opcion "+i);
+        }
+        System.out.println((opciones+1)+" .salir");
     }
 
     public static int opcion() {
 
         Scanner teclado = new Scanner(System.in);
-        int opcion =0;
+        int opciones = 0;
         try {
-             opcion = teclado.nextInt();
+             opciones = teclado.nextInt();
         }catch (InputMismatchException err){
             System.out.println("Formato introducido no válido");
         }
-        return opcion;
+        return opciones;
     }
+
+    
 
 }
 
