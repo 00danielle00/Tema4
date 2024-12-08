@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Jeroglificos {
 
-    static Scanner teclado;
+    static Scanner teclado= new Scanner(System.in);
 
     //2 vectores con valores fijos ya que no van a cambiar
     static int valores[]={1,10,100,1000,10000,100000,1000000};
@@ -25,12 +25,10 @@ public class Jeroglificos {
             int entrada[] = pedirUsuario(dato);
             System.out.println("-------");
 
-
             for (int i = 0; i < entrada.length; i++) {
                int entrad = entrada[i];
                String convertir=repetir(entrad);
                System.out.println(convertir);
-
             }
             return true;
         }
