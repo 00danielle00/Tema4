@@ -2,8 +2,13 @@ package org.example;
 
 import java.util.Scanner;
 
+/**
+ * @author Dani
+ * @version 1.0 (10-12-2024)
+ */
 public class Ventas {
     static Scanner teclado;
+
 
     public static void main(String[] args) {
         teclado = new Scanner(System.in);
@@ -22,6 +27,13 @@ public class Ventas {
         }
     }
 
+    /**
+     * @author
+     * @version
+     * Metodo para rellenar 
+     * @param dato se recibe un numero para poder comppletar el array
+     * @return datos[] te devolvemos un array con los datos de entrada
+     */
     public static float[] rellenarDatos(float dato){
 
         float datos[]= new float[6];
@@ -31,6 +43,6 @@ public class Ventas {
         for (int i = 1; i <datos.length ; i++) {
             datos[i]= teclado.nextFloat();
         }
-        return  datos;
+        return datos;
     }
 }
